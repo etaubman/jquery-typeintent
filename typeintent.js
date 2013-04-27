@@ -12,7 +12,7 @@
             var $el = $(this);
 
             $el.change(function(e){
-                if ($(this).val() === obj.lastChangeVal)
+                if ($(this).val() === obj.lastChangeVal || $(this).val() === (obj.lastChangeVal + ' '))
                 {
                     e.stopImmediatePropagation();
                     e.preventDefault();
