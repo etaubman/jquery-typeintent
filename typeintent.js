@@ -1,12 +1,14 @@
 (function ($) {
     $.fn.typeintent = function (options) {
 
-        var defaultVal = {
-            eachWord:false,
-            waitTime:1200
+        var defaults = {
+            //Should we trigger the change event each time a new word is entered?
+            eachWord: false,
+            //How long should we wait without input before we decide that the user is done?
+            waitTime: 1200
         };
 
-        var obj = $.extend(defaultVal, options);
+        var obj = $.extend(defaults, options);
 
         return this.each(function () {
             var $el = $(this);
@@ -16,11 +18,13 @@
                 var oldVal = obj.lastChangeVal;
                 if (newVal === oldVal || newVal === (oldVal + ' '))
                 {
+                    //Stop bad things from happening to good people
                     e.stopImmediatePropagation();
                     e.preventDefault();
                 }
                 else
                 {
+                    //We need a value to reference on each change call
                     oldVal = newVal;
                 }
             });
