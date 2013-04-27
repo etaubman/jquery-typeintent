@@ -3,7 +3,7 @@
 
         var defaultVal = {
             eachWord:true,
-            waitTime:1000
+            waitTime:1200
         };
 
         var obj = $.extend(defaultVal, options);
@@ -39,12 +39,15 @@
 
             $el.keydown(function(e){
                 clearTimeout(obj.timeout);
-                obj.timeout = setTimeout(function($el) {
-                    if ($el.val() !== obj.lastChangeVal && $el.val() !== (obj.lastChangeVal + ' ') )
-                    {
-                        $el.change();                            
-                    }
-                }, obj.waitTime,$el);
+                if (e.which !== 32)
+                {
+                    obj.timeout = setTimeout(function($el) {
+                        if ($el.val() !== obj.lastChangeVal)
+                        {
+                            $el.change();                            
+                        }
+                    }, obj.waitTime,$el);
+                }
             });
 
         });
