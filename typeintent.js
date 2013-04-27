@@ -2,7 +2,7 @@
     $.fn.typeintent = function (options) {
 
         var defaultVal = {
-            eachWord:true,
+            eachWord:false,
             waitTime:1200
         };
 
