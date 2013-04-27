@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('.test-input').typeintent();
 	$('.test-input').on('typeintent',function(e){
-		console.log($(this).val());
+		var val = $(this).val();
+		console.log( val.match(/\w+/g) );
 	})
 });
