@@ -12,26 +12,30 @@
             var $el = $(this);
 
             $el.change(function(e){
-                if ($(this).val() === obj.lastChangeVal || $(this).val() === (obj.lastChangeVal + ' '))
+                var newVal = $(this).val();
+                var oldVal = obj.lastChangeVal;
+                if (newVal === oldVal || newVal === (oldVal + ' '))
                 {
                     e.stopImmediatePropagation();
                     e.preventDefault();
                 }
                 else
                 {
-                    obj.lastChangeVal = $(this).val();
+                    oldVal = newVal;
                 }
             });
 
             if (obj.eachWord)
             {
                 $el.keyup(function(e){
+                    var newVal = $(this).val();
+                    var oldVal = obj.lastChangeVal;
                     var pattern = /[^\s]\s/;
                     if (e.which === 32 && pattern.test($el.val()))
                     {
-                        if ($el.val() !== obj.lastChangeVal)
+                        if (newVal !== oldVal)
                         {
-                            $el.change();                            
+                            $(this).change();                            
                         }
                     }
                 })
