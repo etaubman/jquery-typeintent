@@ -8,6 +8,10 @@ A jQuery plugin that will fire the change event on an input box when the user st
     $('#my-input-box').typeintent();
 
     $('#my-input-box').typeintent({
-		waitTime: 1400,
-		eachWord: true
+		wait: 1400, // Time to wait in milliseconds before deciding that the user is done (default: 1200)
+		words: true // Will fire event every time the space bar is hit after a word is entered (default: false)
+    });
+    
+    $('#my-input-box;).on('typeintent',function(e){
+    	//do stuff
     });
