@@ -9,9 +9,9 @@
 
         var defaults = {
             //Should we trigger the change event each time a new word is entered?
-            eachWord: true,
+            words: false,
             //How long should we wait without input before we decide that the user is done?
-            waitTime: 1200
+            wait: 1200
         };
 
         var obj = $.extend(defaults, options);
