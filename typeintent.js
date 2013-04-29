@@ -14,7 +14,7 @@
             wait: 1200
         };
 
-        var obj = $.extend(defaults, options);
+        var obj = $.extend({}, defaults, options);
 
         return this.each(function () {
             var $el = $(this);
