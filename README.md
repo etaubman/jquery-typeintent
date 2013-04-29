@@ -15,3 +15,5 @@ A jQuery plugin that will fire the a custom event on an input box when the user 
     $('#my-input-box;).on('typeintent',function(e){
     	//do stuff
     });
+    
+    $('#my-input-box').trigger('typeintent'); //to fire manually
